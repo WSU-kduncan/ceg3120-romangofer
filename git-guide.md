@@ -76,6 +76,6 @@
 
 ## Resources
 
--[Git fetch webpage](https://www.atlassian.com/git/tutorials/syncing/git-fetch#:~:text=The%20git%20fetch%20command%20downloads,else%20has%20been%20working%20on.&text=This%20makes%20fetching%20a%20safe,them%20with%20your%20local%20repository.)
-- [Git merge webpage] (https://www.atlassian.com/git/tutorials/using-branches/git-merge)
-- In-class lectures
+- [Git fetch webpage](https://www.atlassian.com/git/tutorials/syncing/git-fetch#:~:text=The%20git%20fetch%20command%20downloads,else%20has%20been%20working%20on.&text=This%20makes%20fetching%20a%20safe,them%20with%20your%20local%20repository.)
+- [Git merge webpage](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+- In-class lectures 

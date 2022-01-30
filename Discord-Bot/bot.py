@@ -37,7 +37,6 @@ async def on_message(message):
         'Retirement is not in my vocabulary. They aren’t going to get rid of me that way.',
         'I’m a health nut. My favorite food is hot dogs with French fries. And my exercise: I have a two-story house and a very bad memory, so I’m up and down those stairs.'          
     ]
-    files = os.listdir(path)
     pattern = '(?i)[^.]*(Betty White)[^.]*(.)?'
     result = re.match(pattern, message.content)
     if result:

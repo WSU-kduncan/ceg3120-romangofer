@@ -1,11 +1,11 @@
 import os
+import re
 
 import discord
 import random
 from dotenv import load_dotenv
 
 load_dotenv()
-#print(os.getenv('DISCORD_TOKEN'))
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 
@@ -29,25 +29,19 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    brooklyn_99_quotes = [
-        'I\'m the human form of the 💯 emoji.',
-        'Bingpot!',
-        (
-            'Cool. Cool cool cool cool cool cool cool, '
-            'no doubt no doubt no doubt no doubt.'
-        ),
+    betty_white_quotes = [
+        'Kindness and consideration of somebody besides yourself keeps you feeling young.',
+        'I have no regrets at all. None. I consider myself to be the luckiest old broad on two feet.',
+        'Everybody needs a passion. That’s what keeps life interesting. If you live without passion, you can go through life without leaving any footprints.',
+        'About being called a “legend:” “I just laugh. Have I got them fooled.” —On a CNN interview with Joy Behar',
+        'Retirement is not in my vocabulary. They aren’t going to get rid of me that way.',
+        'I’m a health nut. My favorite food is hot dogs with French fries. And my exercise: I have a two-story house and a very bad memory, so I’m up and down those stairs.'          
     ]
-
-    hitchhiker_quotes = [
-        'There is an art, it says, or rather, a knack to flying. The knack lies in learning how to throw yourself at the ground and miss.',
-        'It is a mistake to think you can solve any major problems just with potatoes.',
-        'In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.',
-        'A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.',
-    ]
-
-    if message.content == 'towel!':
-        #response = random.choice(brooklyn_99_quotes)
-        response = random.choice(hitchhiker_quotes)
-        await message.channel.send(response)
+    files = os.listdir(path)
+    pattern = '(?i)[^.]*(Betty White)[^.]*(.)?'
+    result = re.match(pattern, message.content)
+    if result:
+        response = random.choice(betty_white_quotes)
+        await message.channel.send(response, file=discord.File(random.choice(('images/img1.jpg', 'images/img2.jpg', 'images/img3.jpg', 'images/img4.jpg'))))
 
 client.run(TOKEN)

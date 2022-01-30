@@ -9,8 +9,8 @@
     needs to be created in the same directory as the bot.py file. Once a new .env file is created, the following needs to be typed in the file:
 
                                                             ``` 
-                                                               # .env
-                                                               DISCORD_TOKEN=paste-token-here
+                                                            # .env
+                                                            DISCORD_TOKEN=paste-token-here
 
                                                              ```
 
@@ -37,7 +37,7 @@
     Betty White quotes in the bot.py code. Also, it will send a randomly chosen picture of Betty White from the `images` folder inside the `Discord-Bot`
     folder along with the quote.
 
-- Video/Screenshot of Bot Working
+- GIF/Screenshot of Bot Working
 
   ![Bot demonstration gif](images/botdemonstration2.gif)
 

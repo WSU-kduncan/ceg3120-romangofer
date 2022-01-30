@@ -7,9 +7,11 @@
 
   - Where to put API token to work with the code: The bot.py file includes modules and functions that work with .env files. This means a .env file 
     needs to be created in the same directory as the bot.py file. Once a new .env file is created, the following needs to be typed in the file:
+
                                                             ``` 
                                                                # .env
                                                                DISCORD_TOKEN=paste-token-here
+
                                                              ```
 
   - This will allow the bot.py code to work with the API token from Discord.

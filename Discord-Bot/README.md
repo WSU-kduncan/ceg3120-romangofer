@@ -43,6 +43,7 @@
 
   I wanted to insert a video of me typing and then the bot responding in real time, so here is a regular screenshot in case the video didn't show up:
 
+  ![Bot demonstration screenshot](images/discordbot.PNG)
 
 - Research
 

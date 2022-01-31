@@ -19,7 +19,7 @@
   - Another important note for this token is the `.env` file should be added to the `.gitignore` file in the git repository so the `.env` file does not
     accidentally get pushed to GitHub. This will lead to the token not working anymore.
 
-  - Dependencies: First, I installed the right version of Pip (Python package manager) on my system by running the following commands: `sudo apt-get update`,
+  - Dependencies: The biggest dependency for this bot to run is `python3`, which was already installed on my system. What I first installed was the right version of Pip (Python package manager) on my system by running the following commands: `sudo apt-get update`,
     `sudo apt-get upgrade`, and `sudo apt install python3-pip`. This was not on my system originally, so I had to do this before I was able to start
     installing all the necessary packages.
 

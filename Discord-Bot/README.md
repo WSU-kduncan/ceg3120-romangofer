@@ -61,6 +61,6 @@
 
   - [Link where I found these possible solutions](https://stackoverflow.com/questions/64388307/how-to-make-your-discord-bot-always-active)
 
-# GitHub - Screenshot for proof of other branch for testing:
+- GitHub - Screenshot for proof of other branch for testing:
 
   ![Branch screenshot](images/branch.PNG) 

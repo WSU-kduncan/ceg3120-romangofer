@@ -19,7 +19,7 @@
   - Another important note for this token is the `.env` file should be added to the `.gitignore` file in the git repository so the `.env` file does not
     accidentally get pushed to GitHub. This will lead to the token not working anymore.
 
-  - Dependencies: First, I installed the right version of Pip (Python package manager) on my system by running the following commands: `sudo apt-get update`,
+  - Dependencies: The biggest dependency for this bot to run is `python3`, which was already installed on my system. What I first installed was the right version of Pip (Python package manager) on my system by running the following commands: `sudo apt-get update`,
     `sudo apt-get upgrade`, and `sudo apt install python3-pip`. This was not on my system originally, so I had to do this before I was able to start
     installing all the necessary packages.
 
@@ -37,11 +37,9 @@
     Betty White quotes in the bot.py code. Also, it will send a randomly chosen picture of Betty White from the `images` folder inside the `Discord-Bot`
     folder along with the quote.
 
-- GIF/Screenshot of Bot Working
+- Screenshot of Bot Working
 
-  ![Bot demonstration gif](images/botdemonstration2.gif)
-
-  I wanted to insert a video of me typing and then the bot responding in real time, so here is a regular screenshot in case the video didn't show up:
+  Below is a screenshot of my bot output after commands were typed in the server:
 
   ![Bot demonstration screenshot](images/discordbot.PNG)
 
@@ -61,4 +59,8 @@
     functional enough to be online and hosting a bot. As long as it is always connected to a power source, a Discord bot will be able to run
     on it 24/7.
 
-  - [Link where I found these possible solutions](https://stackoverflow.com/questions/64388307/how-to-make-your-discord-bot-always-active) 
+  - [Link where I found these possible solutions](https://stackoverflow.com/questions/64388307/how-to-make-your-discord-bot-always-active)
+
+- GitHub - Screenshot for proof of other branch for testing:
+
+  ![Branch screenshot](images/branch.PNG) 

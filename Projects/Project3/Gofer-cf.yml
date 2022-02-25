@@ -130,6 +130,6 @@ Resources:
             apt-get install -y \
               git \
               python3 \
-              pip3 && \
-            echo "This is from the CF template" > /home/ubuntu/hello.txt && \
+              python3-pip && \
+            echo "This is from the CF template" > /home/ec2-user/hello.txt && \
             reboot

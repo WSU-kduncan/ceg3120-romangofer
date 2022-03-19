@@ -28,6 +28,7 @@
 2. When this `config` file is properly setup on all systems, all that needs to be typed to `ssh` in between the systems is `ssh insert-system-host-name-here`. No private key, username, or IP address specifications are required anymore since they are now entered into the `config` file.
 
 3. To set up a HAProxy load balancer, the configuration file for HAProxy's settings had to be changed, and some new configuration settings were added.
+
 - The `haproxy.cfg` file, which was located inside of `/etc/haproxy`, was modified.
 
 - Configurations that were set: frontend and backend parts of the `haproxy.cfg` file, frontend is where the proxy server was specified as well as its public IP address and its private IP address. In the frontend section, the `default_backend` was specified so the system knew about the two backend servers.
@@ -36,13 +37,13 @@
 
 - To restart HAProxy after a configuration change: `sudo systemctl restart haproxy`
 
-- Resources used: 
+Resources used: 
 
-[HAProxy Setup Article 1 Given in the Directions](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
+- [HAProxy Setup Article 1 Given in the Directions](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts)
 
-[HAProxy Setup Article 2 Given in the Directions](https://www.digitalocean.com/community/tutorials an-introduction-to-haproxy-and-load-balancing-concepts)
+- [HAProxy Setup Article 2 Given in the Directions](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
 
-In-class lectures
+- In-class lectures
 
 4. To set up the webservers, the webserver software had to be installed on the two backend servers. I chose to install apache on my servers.
 
@@ -54,16 +55,20 @@ In-class lectures
 
 - To restart the service after a configuration change: `sudo systemctl restart apache2`
 
-- Resources used:
+ Resources used:
 
-- [Apache Article from Directions](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04)
+ - [Apache Article from Directions](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04)
 
-- In-class lectures
+ - In-class lectures
 
 5. Proxy server connection screenshots:
        
-- ![server 1 screenshot](serv1.PNG)
+ Server 1:
 
-- ![server 2 screenshot](serv2.PNG)
+ ![server 1 screenshot](serv1.PNG)
+
+Server 2:
+
+ ![server 2 screenshot](serv2.PNG)
 
 6. Link to my proxy: http://34.195.8.199/

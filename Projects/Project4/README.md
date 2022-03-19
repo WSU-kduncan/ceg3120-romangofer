@@ -24,7 +24,7 @@
     - "HostName" is what IP address will be tied to the name typed next to "Host". This way, the system knows which IP address to use when it receives that specific host name.
     - "User" is the default username for the instance, which is `ubuntu` for all the instances in this project.
     - "IdentityFile" is where the relative path for the system's private key goes.
-    
+
 2. When this `config` file is properly setup on all systems, all that needs to be typed to `ssh` in between the systems is `ssh insert-system-host-name-here`. No private key, username, or IP address specifications are required anymore since they are now entered into the `config` file.
 
 3. To set up a HAProxy load balancer, the configuration file for HAProxy's settings had to be changed, and some new configuration settings were added.
@@ -33,9 +33,10 @@
            - In backend, the load balancing algorithm was specified, which was roundrobin. This is what allows content from server 1 to be displayed sometimes and content from server 2 to be displayed sometimes when the proxy server is connected to. The other important item in the backend section of the `haproxy.cfg` file are the `server` lines. This is where the names of the backend servers, their private IPs, and the ports for them to serve content over (80) were specified.
            - To restart HAProxy after a configuration change: `sudo systemctl restart haproxy`
            - Resources used: 
+
            - [HAProxy Setup Article 1 Given in the Directions](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
 
-           - [HAProxy Setup Article 2 Given in the Directions](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts)
+           - [HAProxy Setup Article 2 Given in the Directions](https://www.digitalocean.com/community/tutorials an-introduction-to-haproxy-and-load-balancing-concepts)
 
            - In-class lectures
 
@@ -51,8 +52,10 @@
 
 5. Proxy server connection screenshots:
         - Server 1 screenshot:
+        
         ![server 1 screenshot](serv1.PNG)
 
         - Server 2 screenshot:
+
         ![server 2 screenshot](serv2.PNG)
 6. Link to my proxy: http://34.195.8.199/

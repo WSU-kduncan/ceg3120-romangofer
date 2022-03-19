@@ -24,7 +24,9 @@
     - "HostName" is what IP address will be tied to the name typed next to "Host". This way, the system knows which IP address to use when it receives that specific host name.
     - "User" is the default username for the instance, which is `ubuntu` for all the instances in this project.
     - "IdentityFile" is where the relative path for the system's private key goes.
+    
 2. When this `config` file is properly setup on all systems, all that needs to be typed to `ssh` in between the systems is `ssh insert-system-host-name-here`. No private key, username, or IP address specifications are required anymore since they are now entered into the `config` file.
+
 3. To set up a HAProxy load balancer, the configuration file for HAProxy's settings had to be changed, and some new configuration settings were added.
            - The `haproxy.cfg` file, which was located inside of `/etc/haproxy`, was modified.
            - Configurations that were set: frontend and backend parts of the `haproxy.cfg` file, frontend is where the proxy server was specified as well as its public IP address and its private IP address. In the frontend section, the `default_backend` was specified so the system knew about the two backend servers.
@@ -32,8 +34,11 @@
            - To restart HAProxy after a configuration change: `sudo systemctl restart haproxy`
            - Resources used: 
            - [HAProxy Setup Article 1 Given in the Directions](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
+
            - [HAProxy Setup Article 2 Given in the Directions](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts)
+
            - In-class lectures
+
 4. To set up the webservers, the webserver software had to be installed on the two backend servers. I chose to install apache on my servers.
            - To allow the webserver to display the desired content, the `index.html` file located in `/var/www/html` had to be modified. Also, the `000-default.conf` file inside of `/etc/apache2/sites-enabled` could be modified for Apache to look in a different directory for `index.html`, but this was not necessary for me since I was using the default location. Also, this file could be modified to give the system permission to read the whole directory it is set to point to, since by default it is only allowed to read the `index.html` file. This was not necessary for me to get my server/websites working either.
            - By default, there was code in that `index.html` file that was just a default page that had information about Apache and how the `index.html` file setup worked. After making a backup copy of the original file, I copied and pasted in my own HTML code to display into the file on both backend servers.
@@ -41,10 +46,13 @@
            - To restart the service after a configuration change: `sudo systemctl restart apache2`
            - Resources used:
            - [Apache Article from Directions](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04)
+
            - In-class lectures
+
 5. Proxy server connection screenshots:
         - Server 1 screenshot:
         ![server 1 screenshot](serv1.PNG)
+
         - Server 2 screenshot:
         ![server 2 screenshot](serv2.PNG)
 6. Link to my proxy: http://34.195.8.199/

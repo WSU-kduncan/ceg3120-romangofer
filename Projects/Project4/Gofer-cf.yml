@@ -140,7 +140,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: '22'
           ToPort: '22'
-          CidrIp: 108.222.118.252/32  # Replace with home / trusted public IP
+          CidrIp: 108.240.89.4/32  # Replace with home / trusted public IP
           # TODO Need more rules for port 80 access
         - IpProtocol: tcp
           FromPort: '80'
@@ -184,11 +184,16 @@ Resources:
           !Sub |
             #!/bin/bash -xe
             apt-get update && \
-            # TODO need to install haproxy
-            apt-get install -y git python3 python3-pip && \
+
+            # TODO need to install apache or nginx
+            apt install \
+               git && \
+                  #  apache2 && \
             hostnamectl set-hostname proxy && \
+            apt install -y haproxy && \
+            # TODO give it a hostname - hostnamectl  && \
+
             reboot
-            apt install haproxy
   WebServ1Instance:
     Type: 'AWS::EC2::Instance'
     DependsOn: AttachGateway
@@ -206,7 +211,7 @@ Resources:
         - Key: Application
           Value: !Ref 'AWS::StackId'
         - Key: Name
-          Value: webserv1
+          Value: webserver1
       NetworkInterfaces:
         - GroupSet:
             - !Ref SecurityGroup
@@ -221,7 +226,53 @@ Resources:
             #!/bin/bash -xe
             apt-get update && \
             # TODO need to install apache or nginx
-            apt-get install -y git && \
+            apt install -y \
+               git && \
+                  #  apache2 && \
+            hostnamectl set-hostname webserver1 && \
+            apt install -y apache2 && \
             # TODO give it a hostname - hostnamectl  && \
+
             reboot
 # TODO: create another webserver instance attached to the private subnet
+
+  WebServ2Instance:
+    Type: 'AWS::EC2::Instance'
+    DependsOn: AttachGateway
+    Properties:
+      ImageId: !FindInMap 
+        - AWSRegionUbuntu
+        - !Ref 'AWS::Region'
+        - !FindInMap 
+          - AWSInstanceType2Arch
+          - t2.micro
+          - Arch
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackId'
+        - Key: Name
+          Value: webserver2
+      NetworkInterfaces:
+        - GroupSet:
+            - !Ref SecurityGroup
+          AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          DeleteOnTermination: 'true'
+          SubnetId: !Ref PrivateSubnet
+          PrivateIpAddress: 10.0.1.20 # TODO make sure unique to the instance
+      UserData:
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash -xe
+            apt-get update && \
+            # TODO need to install apache or nginx
+            apt install -y \
+               git && \
+                  #  apache2 && \
+            hostnamectl set-hostname webserver2 && \
+            apt install -y apache2 && \
+            # TODO give it a hostname - hostnamectl  && \
+
+            reboot

@@ -29,9 +29,13 @@
 
 3. To set up a HAProxy load balancer, the configuration file for HAProxy's settings had to be changed, and some new configuration settings were added.
            - The `haproxy.cfg` file, which was located inside of `/etc/haproxy`, was modified.
+           
            - Configurations that were set: frontend and backend parts of the `haproxy.cfg` file, frontend is where the proxy server was specified as well as its public IP address and its private IP address. In the frontend section, the `default_backend` was specified so the system knew about the two backend servers.
+
            - In backend, the load balancing algorithm was specified, which was roundrobin. This is what allows content from server 1 to be displayed sometimes and content from server 2 to be displayed sometimes when the proxy server is connected to. The other important item in the backend section of the `haproxy.cfg` file are the `server` lines. This is where the names of the backend servers, their private IPs, and the ports for them to serve content over (80) were specified.
+
            - To restart HAProxy after a configuration change: `sudo systemctl restart haproxy`
+
            Resources used: 
 
            [HAProxy Setup Article 1 Given in the Directions](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
@@ -45,6 +49,7 @@
            - By default, there was code in that `index.html` file that was just a default page that had information about Apache and how the `index.html` file setup worked. After making a backup copy of the original file, I copied and pasted in my own HTML code to display into the file on both backend servers.
            - Site content files were located in `/var/www/html` because that is where Apache looks by default for the index.html file to display.
            - To restart the service after a configuration change: `sudo systemctl restart apache2`
+
            Resources used:
            [Apache Article from Directions](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04)
 
